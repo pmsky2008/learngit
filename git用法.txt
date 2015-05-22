@@ -1,0 +1,48 @@
+git init 初始化
+git add [.][file] 加入暂存区
+git commit -m ### 提交至分支
+git status 显示状态
+git diff file 比较文件
+git diff HEAD -- file 查看工作区和版本库里面最新版本的区别
+git diff -- file 查看工作区和暂存区对比
+git log [--pretty=oneline] 查看日志
+git reset --hard HEAD^ [commit id] 回退版本
+git reset HEAD file 撤销暂存区的修改
+HEAD   表示当前版本
+HEAD^  表示上一个版本
+HEAD^^ 表示上上一个版本
+HEAD~100 上100个版本
+git reflog 查看记录
+git checkout -- file 撤销工作区的修改
+git rm file 删除文件
+
+ssh-keygen -t rsa -C email 创建SSH Key
+git remote add origin git@github.com:pmsky2008/learngit.git 与远程库建立连接
+git push [-u] origin branch_name 本地分支推送到远程库(一般为master)
+git branch [dev] 查看当前分支和创建dev分支
+git checkout -b dev 创建并切换到dev分支
+git checkout -b dev origin/dev 创建远程分支original/dev到本地
+git merge dev 将dev合并到当前分支
+git branch -d dev 删除dev分支
+git branch -D dev 强行删除dev分支
+git log --graph --pretty=oneline --abbrev-commit 查看分支合并情况
+git merge --no-ff -m ### dev 禁用Fast forward的合并(-m ###为描述)
+git stash 隐藏工作区
+git stash list 隐藏工作区列表
+git stash apply stash@{0} 恢复隐藏工作区
+git stash drop 删除隐藏工作区
+git stash pop 恢复并删除隐藏工作区
+git remote [-v] 查看远程库信息
+git pull 获取分支
+git branch --set-upstream dev origin/dev 设置dev和origin/dev的链接
+git tag [-a|-s] <name> -m ### [commit id] 创建标签(-m ###为描述)
+git tag 查看标签
+git show <tagname> 查看标签信息
+git config --global alias.st status 配置别名(status=>st)
+
+多人协作的工作模式通常是这样：
+首先，可以试图用git push origin branch-name推送自己的修改；
+如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+如果合并有冲突，则解决冲突，并在本地提交；
+没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！
+如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。
