@@ -10,3 +10,5 @@ dev
 dev
 
 ÄãÊÇÉµ±ÆÂğ
+
+use pull
